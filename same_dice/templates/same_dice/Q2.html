@@ -1,0 +1,45 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+<h3  align="center" > 第2题
+ </h3>
+{% endblock %}
+
+{% block content %}
+<!-- Tab content -->
+
+<img src="{% static 'images/black_dice.jpg' %}" style="display: block; margin: auto;">
+
+<p align="justify">
+如果在任何情况下, {{ lottery_not_chosen }}的收益都增加
+    <b> {{ rand_num }} </b>
+    元, 也就是说:
+</p>
+
+<p align="justify">
+如果骰子产生的数字是1或2, {{ lottery_chosen }}将为您赢得10元, {{ lottery_not_chosen }}将为您赢得
+    <b> {{ payoff_low }} </b>
+    元。
+</p>
+
+<p align="justify">
+如果骰子产生的数字是3或4, {{ lottery_chosen }}将为您赢得5元, {{ lottery_not_chosen }}将为您赢得
+    <b> {{ payoff_high }} </b>
+    元。
+</p>
+
+<p align="justify">
+如果骰子产生的数字是5或6, {{ lottery_chosen }}将为您赢得0元, {{ lottery_not_chosen }}将为您赢得
+    <b> {{ payoff_mid }} </b>
+    元。
+</p>
+
+    {% formfields %}
+
+
+<h3  align="center" >
+<button class="nexttab btn-primary btn next">下一步</button>
+ </h3>
+{% endblock %}

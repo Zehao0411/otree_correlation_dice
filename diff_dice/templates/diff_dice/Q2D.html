@@ -1,0 +1,81 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+<h3  align="center" > 第{{Q2D_counter}}题
+ </h3>
+{% endblock %}
+
+{% block content %}
+<!-- Tab content -->
+
+<p align="justify">
+    根据您之前的选择,
+    <b> 电脑已经分别投掷了蓝色和红色的骰子 </b>
+    ，您未选择的彩票({{ lottery_not_chosen }})和您已经选择的彩票({{ lottery_chosen }})都已经开奖。
+    请问您是否愿意支付
+    <b> {{ rand_num }} </b>
+    元,
+    <b> 以便同时知道 </b>
+   知道未选择的彩票({{ lottery_not_chosen }})所产生的结果？
+</p>
+
+
+<p align="justify">
+    如果您不愿意支付，
+    <b> 您将会同时知道选择的{{ lottery_not_chosen }}和您已选择的{{ lottery_chosen }}所产生的结果 </b>
+</p>
+
+
+<div class="dice-box">
+    <div class="red-box">
+        <p>红色骰子产生的数字 ?
+        <p>彩票C的收益为 ?</p>
+    </div>
+    <div class="blue-box">
+        <p>蓝色骰子产生的数字 ?
+        <p>彩票D的收益为 ?</p>
+    </div>
+</div>
+
+
+{% if lottery_chosen == "彩票C" %}
+<p align="justify">
+    如果您愿意支付，
+    <b> 您将只会知道已选择的{{ lottery_chosen }}所产生的结果。 </b>
+</p>
+<div class="dice-box">
+    <div class="red-box">
+        <p>红色骰子产生的数字 ?
+        <p>彩票C的收益为 ?</p>
+    </div>
+</div>
+{% else %}
+{% endif %}
+
+
+{% if lottery_chosen == "彩票D" %}
+<p>
+    如果您愿意支付，
+    <b> 您将只会知道已选择的{{ lottery_chosen }}所产生的结果。  </b>
+</p>
+<div class="dice-box">
+    <div class="blue-box">
+        <p>蓝色骰子产生的数字 ?
+        <p>彩票D的收益为 ?</p>
+    </div>
+</div>
+{% else %}
+{% endif %}
+
+
+<p align="center">
+    {% formfields %}
+</p>
+
+<h3  align="center" >
+<button class="nexttab btn-primary btn next">下一步</button>
+ </h3>
+{% endblock %}
+

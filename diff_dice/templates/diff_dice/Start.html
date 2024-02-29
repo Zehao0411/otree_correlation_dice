@@ -1,0 +1,54 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+<h3  align="center" > 第{{which_part}}部分
+ </h3>
+{% endblock %}
+
+{% block content %}
+<!-- Tab content -->
+
+<p align="justify">
+在该部分实验中, 您需要在C和D两支彩票之间做出选择。这两支彩票的收益分别由电脑模拟的
+    <b> 两个不同的六面骰子 </b>
+    (编号从1到6)的投掷结果决定, 具体规则如下:
+</p>
+
+
+<p align="justify">
+为了确定彩票C的收益, 电脑将随机投掷一颗六面的
+    <b class="red-text"> 红色骰子 </b>
+    , 编号从1到6。
+    <p>
+    如果骰子产生的数字是1、2或者3, 彩票C将为您赢得2元；
+    <p>如果骰子产生的数字是4、5或者6, 彩票C将为您赢得8元。
+</p>
+
+<img src="{% static 'images/red_dice.jpg' %}" style="display: block; margin: auto;">
+
+
+<p align="justify">
+为了确定彩票D的收益, 电脑将随机投掷一颗六面的
+    <b class="blue-text"> 蓝色骰子 </b>
+    , 编号从1到6。
+    <p>
+    如果骰子产生的数字是1、2或者3, 彩票C将为您赢得0元；
+    <p>如果骰子产生的数字是4、5或者6, 彩票C将为您赢得10元。
+</p>
+
+<img src="{% static 'images/blue_dice.jpg' %}" style="display: block; margin: auto;">
+
+
+<p align="justify">
+
+<div class="form-group">
+    {% formfields %}
+</div>
+
+
+<h3  align="center" >
+<button class="nexttab btn-primary btn next">下一步</button>
+ </h3>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+<h3  align="center" > 第1题
+ </h3>
+{% endblock %}
+
+
+{% block content %}
+<!-- Tab content -->
+
+<img src="{% static 'images/black_dice.jpg' %}" style="display: block; margin: auto;">
+
+<p align="justify">
+如果骰子产生的数字是1或2, 彩票A将为您赢得10元, 彩票B将为您赢得0元。
+</p>
+
+<p align="justify">
+如果骰子产生的数字是3或4, 彩票A将为您赢得5元, 彩票B将为您赢得10元。
+</p>
+
+<p align="justify">
+如果骰子产生的数字是5或6, 彩票A将为您赢得0元, 彩票B将为您赢得5元。
+</p>
+
+    {% formfields %}
+
+
+<h3  align="center" >
+<button class="nexttab btn-primary btn next">下一步</button>
+ </h3>
+{% endblock %}
+
+
+
+
+
+

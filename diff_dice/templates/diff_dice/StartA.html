@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+<h3  align="center" > 第{{which_part}}部分-说明
+ </h3>
+{% endblock %}
+
+{% block content %}
+<!-- Tab content -->
+
+<p align="justify">
+接下来, 您将面临一系列选择。这些选择关于您是否愿意支付一定金额, 以
+    <b> 避免 </b>
+    您未选择的{{ lottery_not_chosen }}和您已选择的{{ lottery_chosen }}同时开奖。
+    <p> 实验结束后,
+   <b> 电脑将随机选取您做的某一个选择来决定您未选择的{{ lottery_not_chosen }}和您已选择的{{ lottery_chosen }}是否同时开奖 </b>
+。您的选择将直接影响到您的最终收入以及开奖的形式。如果选择愿意支付指定费用，那么该金额将从您的最终收入中相应扣除。如果选择不愿意，那么您的最终收入保持不变。
+</p>
+
+
+<h3  align="center" >
+<button class="nexttab btn-primary btn next">下一步</button>
+ </h3>
+{% endblock %}

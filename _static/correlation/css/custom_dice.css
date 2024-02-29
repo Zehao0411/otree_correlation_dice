@@ -1,0 +1,93 @@
+/* ****************************************************************************************************************** */
+/* *** for the next and back buttons *** */
+/* ****************************************************************************************************************** */
+.next {
+    float: right;
+    margin: 40px auto;
+    }
+
+ .back{
+    float: left;
+    margin: 40px auto;
+    }
+
+
+
+.page-header {
+    margin: 0px 0 5px;
+    padding: 0;
+    border-bottom: none;
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+    text-justify: inter-word;
+    text-indent: 2em;
+}
+
+
+.nav {
+    visibility: hidden;
+}
+
+
+.red-text {
+    color: red;
+}
+
+.blue-text {
+    color: blue;
+}
+
+.green-text {
+    color: green;
+}
+
+
+.container {
+  width: 80%; /* 或具体的像素值px */
+  margin: 0 auto; /* 上下边距为0，左右自动 */
+}
+
+
+h3 {
+    margin-top: 50px; /* 默认上边距 */
+    margin-bottom: 25px; /* 默认下边距 */
+}
+
+
+.otree-form .form-group {
+    margin-top: 50px; /* 调整为你想要的边距 */
+}
+
+
+.dice-box {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    margin: 10px auto;
+}
+
+.dice-box p {
+    text-indent: 5px; /* 这会覆盖全局的p样式，取消缩进 */
+}
+
+.red-box {
+    border: 2px solid red;
+    padding: 5px;
+    padding-top: 20px; /* 增加上部内边距 */
+    padding-left: 20px; /* 增加左部内边距 */
+    padding-right: 20px; /* 增加右部内边距 */
+    margin-right: 50px;
+}
+.blue-box {
+    border: 2px solid blue;
+    padding: 5px;
+    padding-top: 20px; /* 增加上部内边距 */
+    padding-left: 20px; /* 增加左部内边距 */
+    padding-right: 25px; /* 增加右部内边距 */
+
+
+
+

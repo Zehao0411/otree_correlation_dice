@@ -1,0 +1,48 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block title %}
+<h3  align="center" > 第{{ which_part }}部分
+ </h3>
+{% endblock %}
+
+{% block content %}
+<!-- Tab content -->
+
+<p align="justify">
+在该部分实验中, 您需要在A和B两支彩票之间做出选择。两支彩票的收益由电脑模拟的
+    <b> 同一个六面骰子 </b>
+    (编号从1到6)的投掷结果决定, 具体规则如下:
+</p>
+
+<img src="{% static 'images/black_dice.jpg' %}" style="display: block; margin: auto;">
+
+<p align="justify">
+如果骰子产生的数字是1或2, 彩票A将为您赢得10元, 彩票B将为您赢得0元。
+</p>
+
+<p align="justify">
+如果骰子产生的数字是3或4, 彩票A将为您赢得5元, 彩票B将为您赢得10元。
+</p>
+
+<p align="justify">
+如果骰子产生的数字是5或6, 彩票A将为您赢得0元, 彩票B将为您赢得5元。
+</p>
+
+<p align="justify">
+在您正式做选择之前, 请问您认为下面的表述正确吗？
+</p>
+
+    {% formfields %}
+
+<p align="justify">
+接下来, 您会面临一系列的选择。实验结束后,
+    <b> 电脑会随机选取您做的某一个选择, 作为计算您在该部分实验中获得报酬的依据。</b>
+</p>
+
+
+<h3  align="center" >
+<button class="nexttab btn-primary btn next">下一步</button>
+ </h3>
+{% endblock %}

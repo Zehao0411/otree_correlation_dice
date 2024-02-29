@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+        <link href="{% static 'correlation/css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+
+{% block title %}
+<h3  align="center" > 说明
+ </h3>
+{% endblock %}
+
+{% block content %}
+<!-- Tab content -->
+
+<p align="justify">
+
+本次实验共分为两个部分。在每部分实验中, 您需要根据个人喜好做出一些选择。这些选择将最终决定您赚取多少额外报酬。
+ <b> 由于您的选择将直接影响您的报酬, 所以请认真对待每一个选择。 </b>
+
+</p>
+<h3  align="center" >
+<button class="nexttab btn-primary btn next">下一步</button>
+ </h3>
+{% endblock %}
