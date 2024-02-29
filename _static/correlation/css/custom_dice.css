@@ -88,6 +88,11 @@ h3 {
     padding-left: 20px; /* 增加左部内边距 */
     padding-right: 25px; /* 增加右部内边距 */
 
-
+.choice-box{
+    text-align: center;      /* 使文本居中 */
+    font-size: 0.8em;      /* 设置字号为正文字号的0.875倍，假设正文字号为16px，则此处为14px */
+    background-color: #f0f0f0;  /* 设置背景色为浅灰色 */
+    margin: 5px;
+}
 
 

@@ -44,7 +44,7 @@ class Player(BasePlayer):
         choices=['正确', '错误'],
         label='''
             每支彩票都有相同的几率为您赢得10元、5元和0元。''',
-        widget=widgets.RadioSelect()
+        widget=widgets.RadioSelectHorizontal()
     )
 
     Q1 = models.StringField(

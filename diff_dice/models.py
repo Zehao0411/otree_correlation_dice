@@ -42,19 +42,14 @@ class Subsession(BaseSubsession):
         randomized_treatments = Constants.treatments.copy()
         random.shuffle(randomized_treatments)
 
-        subj_num = len(self.get_players())
-        loop_ub_1 = subj_num // 4 + 1
-        loop_ub_2 = loop_ub_1 + subj_num // 4
-        loop_ub_3 = loop_ub_2 + subj_num // 4
-
         for player in self.get_players():
-            if player.id_in_group in range(1, loop_ub_1):
+            if player.id_in_group % 4 == 0:
                 player.treatment = randomized_treatments[0]
-            elif player.id_in_group in range(loop_ub_1, loop_ub_2):
+            elif player.id_in_group % 4 == 1:
                 player.treatment = randomized_treatments[1]
-            elif player.id_in_group in range(loop_ub_2, loop_ub_3):
+            elif player.id_in_group % 4 == 2:
                 player.treatment = randomized_treatments[2]
-            elif player.id_in_group in range(loop_ub_3, subj_num + 1):
+            elif player.id_in_group % 4 == 3:
                 player.treatment = randomized_treatments[3]
             else:
                 raise ValueError("Error in assigning treatment")

@@ -1,0 +1,514 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+<style>
+.reward-box{
+    text-align: center;      /* 使文本居中 */
+    font-size: 0.8em;      /* 设置字号为正文字号的0.875倍，假设正文字号为16px，则此处为14px */
+    background-color: #f0f0f0;  /* 设置背景色为浅灰色 */
+    margin-top: 5px;
+    margin-bottom:5px;
+    margin-left: 75px;
+    margin-right:75px;
+}
+
+.reward-box p {
+    text-indent: 0em; /* 这会覆盖全局的p样式，取消缩进 */
+}
+
+</style>
+{% endblock %}
+
+
+
+
+{% block title %}
+<h3  align="center" > 报酬页面
+ </h3>
+{% endblock %}
+
+
+{% block content %}
+<!-- Tab content -->
+
+<p align="justify">
+
+ 您获得了
+    <b>10</b>
+    元的基础报酬。
+</p>
+
+<hr>
+
+<p align="justify">
+ 在第一部分的实验中, 电脑从一系列的彩票决策中随机抽出下面的决策：
+</p>
+
+<div class="reward-box">
+<p align="justify">
+如果在任何情况下, {{ same_lottery_not_chosen }}的收益都增加
+    <b> {{ same_selected_rand_value }} </b>
+    元, 也就是说:
+</p>
+
+{% if same_lottery_chosen == "彩票A" %}
+    <p align="justify">
+    如果骰子产生的数字是1或2, 彩票A将为您赢得10元, 彩票B}将为您赢得
+        <b> {{ same_payoff_low }} </b>
+        元。
+    </p>
+
+    <p align="justify">
+    如果骰子产生的数字是3或4, 彩票A将为您赢得5元, 彩票B将为您赢得
+        <b> {{ same_payoff_high }} </b>
+        元。
+    </p>
+
+    <p align="justify">
+    如果骰子产生的数字是5或6, 彩票A将为您赢得0元, 彩票B将为您赢得
+        <b> {{ same_payoff_mid }} </b>
+        元。
+    </p>
+{% else %}
+{% endif %}
+
+{% if same_lottery_chosen == "彩票B" %}
+    <p align="justify">
+    如果骰子产生的数字是1或2, 彩票A将为您赢得
+        <b> {{ same_payoff_high }} </b>
+        元, 彩票B将为您赢得0元。
+    </p>
+
+    <p align="justify">
+    如果骰子产生的数字是3或4, 彩票A将为您赢得
+        <b> {{ same_payoff_mid }} </b>
+        元, 彩票B将为您赢得10元。
+    </p>
+
+    <p align="justify">
+    如果骰子产生的数字是5或6, 彩票A将为您赢得
+        <b> {{ same_payoff_low }} </b>
+        元, 彩票B将为您赢得5元。
+    </p>
+{% else %}
+{% endif %}
+</div>
+
+
+<p>
+ 您在该决策中选择的是
+    <b>{{ same_selected_response }}</b>
+    , 骰子随机到的点数为
+    <b>{{ same_dice_num }}</b>，产生的报酬为
+    <b>{{ same_final_payoff }}</b>
+    元;
+</p>
+
+<hr>
+
+ <p align="justify">
+  在第二部分的实验中, 你的选择是
+     <b>{{ diff_lottery_chosen }}</b>。
+  对于一系列关于如何开奖的选择题目中，电脑随机选择的题目如下所示，您对应的选择是
+     <b>{{ diff_selected_response }}</b>
+     。
+ </p>
+
+<div class="reward-box">
+{% if diff_subj_treatment == "A" %}
+
+ <p align="justify">
+     根据您之前的选择, 请问您是否愿意支付
+     <b> {{ diff_selected_rand_value }} </b>
+     元, 以
+     <b> 避免 </b>
+    未选择的{{ diff_lottery_not_chosen }}和您已经选择的{{ diff_lottery_chosen }}同时开奖？
+ </p>
+ <p align="justify">
+     如果您不愿意支付，
+     <b> 电脑将同时投掷蓝色和红色的骰子, 您未选择的{{ diff_lottery_not_chosen }}和您已选择的{{ diff_lottery_chosen }}都会开奖, 您也将同时知道它们所产生的结果。  </b>
+ </p>
+ <div class="dice-box">
+     <div class="red-box">
+         <p>红色骰子产生的数字 ?
+         <p>彩票C的收益为 ?</p>
+     </div>
+     <div class="blue-box">
+         <p>蓝色骰子产生的数字 ?
+         <p>彩票D的收益为 ?</p>
+     </div>
+ </div>
+ {% if diff_lottery_chosen == "彩票C" %}
+ <p align="justify">
+     如果您愿意支付，
+     <b> 电脑将只投掷红色的骰子, 您将只会知道已选择的{{ diff_lottery_chosen }}
+         所产生的结果。  </b>
+ </p>
+ <div class="dice-box">
+     <div class="red-box">
+         <p>红色骰子产生的数字 ?
+         <p>彩票C的收益为 ?</p>
+     </div>
+ </div>
+ {% else %}
+ {% endif %}
+ {% if diff_lottery_chosen == "彩票D" %}
+ <p>
+     如果您愿意支付，
+     <b> 电脑将只投掷蓝色的骰子, 您将只会知道已选择的{{ diff_lottery_chosen }}所产生的结果。  </b>
+ </p>
+ <div class="dice-box">
+     <div class="blue-box">
+         <p>蓝色骰子产生的数字 ?
+         <p>彩票D的收益为 ?</p>
+     </div>
+ </div>
+ {% else %}
+ {% endif %}
+{% else %}
+{% endif %}
+
+
+{% if diff_subj_treatment == "B" %}
+ <p align="justify">
+     根据您之前的选择, 请问您是否愿意支付
+     <b> {{ diff_selected_rand_value }} </b>
+     元, 以
+     <b> 使得 </b>
+    未选择的{{ diff_lottery_not_chosen }}和您已经选择的{{ diff_lottery_chosen }}同时开奖？
+ </p>
+ <p align="justify">
+     如果您愿意支付，
+     <b> 电脑将同时投掷蓝色和红色的骰子, 您未选择的{{ diff_lottery_not_chosen }}和您已选择的{{ diff_lottery_chosen }}都会开奖, 您也将同时知道它们所产生的结果。  </b>
+ </p>
+ <div class="dice-box">
+     <div class="red-box">
+         <p>红色骰子产生的数字 ?
+         <p>彩票C的收益为 ?</p>
+     </div>
+     <div class="blue-box">
+         <p>蓝色骰子产生的数字 ?
+         <p>彩票D的收益为 ?</p>
+     </div>
+ </div>
+ {% if diff_lottery_chosen == "彩票C" %}
+ <p align="justify">
+     如果您不愿意支付，
+     <b> 电脑将只投掷红色的骰子, 您将只会知道已选择的{{ diff_lottery_chosen }}所产生的结果。  </b>
+ </p>
+ <div class="dice-box">
+     <div class="red-box">
+         <p>红色骰子产生的数字 ?
+         <p>彩票C的收益为 ?</p>
+     </div>
+ </div>
+ {% else %}
+ {% endif %}
+ {% if diff_lottery_chosen == "彩票D" %}
+ <p>
+     如果您不愿意支付，
+     <b> 电脑将只投掷蓝色的骰子, 您将只会知道已选择的{{ diff_lottery_chosen }}所产生的结果。  </b>
+ </p>
+ <div class="dice-box">
+     <div class="blue-box">
+         <p>蓝色骰子产生的数字 ?
+         <p>彩票D的收益为 ?</p>
+     </div>
+ </div>
+ {% else %}
+ {% endif %}
+{% else %}
+{% endif %}
+
+
+{% if diff_subj_treatment == "C" %}
+ <p align="justify">
+     根据您之前的选择,
+     <b> 电脑已经分别投掷了红色和蓝色的骰子 </b>
+     ，您未选择的{{ diff_lottery_not_chosen }}和您已经选择的{{ diff_lottery_chosen }}都已经开奖。
+     请问您是否愿意支付
+     <b> {{ diff_selected_rand_value }} </b>
+     元, 以
+     <b> 避免 </b>
+    知道未选择的{{ diff_lottery_not_chosen }}所产生的结果？
+ </p>
+ <p align="justify">
+     如果您不愿意支付，
+     <b> 您将会同时知道选择的{{ diff_lottery_not_chosen }}和您已选择的{{ diff_lottery_chosen }}所产生的结果 </b>
+ </p>
+ <div class="dice-box">
+     <div class="red-box">
+         <p>红色骰子产生的数字 ?
+         <p>彩票C的收益为 ?</p>
+     </div>
+     <div class="blue-box">
+         <p>蓝色骰子产生的数字 ?
+         <p>彩票D的收益为 ?</p>
+     </div>
+ </div>
+ {% if diff_lottery_chosen == "彩票C" %}
+ <p align="justify">
+     如果您愿意支付，
+     <b> 您将只会知道已选择的{{ diff_lottery_chosen }}所产生的结果。 </b>
+ </p>
+ <div class="dice-box">
+     <div class="red-box">
+         <p>红色骰子产生的数字 ?
+         <p>彩票C的收益为 ?</p>
+     </div>
+ </div>
+ {% else %}
+ {% endif %}
+ {% if diff_lottery_chosen == "彩票D" %}
+ <p>
+     如果您愿意支付，
+     <b> 您将只会知道已选择的{{ diff_lottery_chosen }}所产生的结果。  </b>
+ </p>
+ <div class="dice-box">
+     <div class="blue-box">
+         <p>蓝色骰子产生的数字 ?
+         <p>彩票D的收益为 ?</p>
+     </div>
+ </div>
+ {% else %}
+ {% endif %}
+{% else %}
+{% endif %}
+
+
+{% if diff_subj_treatment == "D" %}
+ <p align="justify">
+     根据您之前的选择,
+     <b> 电脑已经分别投掷了红色和蓝色的骰子 </b>
+     ，您未选择的{{ diff_lottery_not_chosen }}和您已经选择的{{ diff_lottery_chosen }}都已经开奖。
+     请问您是否愿意支付
+     <b> {{ diff_selected_rand_value }} </b>
+     元,
+     <b> 以便同时知道 </b>
+    知道未选择的{{ diff_lottery_not_chosen }}所产生的结果？
+ </p>
+ <p align="justify">
+     如果您愿意支付，
+     <b> 您将会同时知道选择的{{ diff_lottery_not_chosen }}和您已选择的{{ diff_lottery_chosen }}所产生的结果 </b>
+ </p>
+ <div class="dice-box">
+     <div class="red-box">
+         <p>红色骰子产生的数字 ?
+         <p>彩票C的收益为 ?</p>
+     </div>
+     <div class="blue-box">
+         <p>蓝色骰子产生的数字 ?
+         <p>彩票D的收益为 ?</p>
+     </div>
+ </div>
+ {% if diff_lottery_chosen == "彩票C" %}
+ <p align="justify">
+     如果您不愿意支付，
+     <b> 您将只会知道已选择的{{ diff_lottery_chosen }}所产生的结果。 </b>
+ </p>
+ <div class="dice-box">
+     <div class="red-box">
+         <p>红色骰子产生的数字 ?
+         <p>彩票C的收益为 ?</p>
+     </div>
+ </div>
+ {% else %}
+ {% endif %}
+ {% if diff_lottery_chosen == "彩票D" %}
+ <p>
+     如果您不愿意支付，
+     <b> 您将只会知道已选择的{{ diff_lottery_chosen }}所产生的结果。  </b>
+ </p>
+ <div class="dice-box">
+     <div class="blue-box">
+         <p>蓝色骰子产生的数字 ?
+         <p>彩票D的收益为 ?</p>
+     </div>
+ </div>
+ {% else %}
+ {% endif %}
+{% else %}
+{% endif %}
+</div>
+
+{% if diff_selected_response == "愿意" %}
+    <p>
+     对应支付金额（{{ diff_selected_rand_value }}元）将从您的最终收入中相应扣除。彩票的开奖结果如下所示：
+    </p>
+
+    {% if diff_subj_treatment == "A" %}
+         {% if diff_lottery_chosen == "彩票C" %}
+         <div class="dice-box">
+             <div class="red-box">
+                 <p>红色骰子产生的数字 {{ diff_red_dice_num }}
+                 <p>彩票C的收益为{{ diff_red_payoff }}元</p>
+             </div>
+         </div>
+         {% else %}
+         {% endif %}
+
+         {% if diff_lottery_chosen == "彩票D" %}
+         <div class="dice-box">
+             <div class="blue-box">
+                 <p>蓝色骰子产生的数字 {{ diff_blue_dice_num }}
+                 <p>彩票D的收益为{{ diff_blue_payoff }}元</p>
+             </div>
+         </div>
+        {% else %}
+        {% endif %}
+    {% else %}
+    {% endif %}
+
+    {% if diff_subj_treatment == "B" %}
+        <div class="dice-box">
+            <div class="red-box">
+                <p>红色骰子产生的数字 {{ diff_red_dice_num }}
+                <p>彩票C的收益为{{ diff_red_payoff }}元</p>
+            </div>
+            <div class="blue-box">
+                <p>蓝色骰子产生的数字 {{ diff_blue_dice_num }}
+                <p>彩票D的收益为{{ diff_blue_payoff }}元</p>
+            </div>
+        </div>
+    {% else %}
+    {% endif %}
+
+    {% if diff_subj_treatment == "C" %}
+         {% if diff_lottery_chosen == "彩票C" %}
+             <div class="dice-box">
+                 <div class="red-box">
+                     <p>红色骰子产生的数字 {{ diff_red_dice_num }}
+                     <p>彩票C的收益为{{ diff_red_payoff }}元</p>
+                 </div>
+             </div>
+         {% else %}
+         {% endif %}
+
+         {% if diff_lottery_chosen == "彩票D" %}
+             <div class="dice-box">
+                 <div class="blue-box">
+                     <p>蓝色骰子产生的数字 {{ diff_blue_dice_num }}
+                     <p>彩票D的收益为{{ diff_blue_payoff }}元</p>
+                 </div>
+             </div>
+        {% else %}
+        {% endif %}
+    {% else %}
+    {% endif %}
+
+    {% if diff_subj_treatment == "D" %}
+        <div class="dice-box">
+            <div class="red-box">
+                <p>红色骰子产生的数字 {{ diff_red_dice_num }}
+                <p>彩票C的收益为{{ diff_red_payoff }}元</p>
+            </div>
+            <div class="blue-box">
+                <p>蓝色骰子产生的数字 {{ diff_blue_dice_num }}
+                <p>彩票D的收益为{{ diff_blue_payoff }}元</p>
+            </div>
+        </div>
+    {% else %}
+    {% endif %}
+{% else %}
+{% endif %}
+
+{% if diff_selected_response == "不愿意" %}
+    <p>
+     您的收入不变。彩票的开奖结果如下所示：
+    </p>
+
+    {% if diff_subj_treatment == "A" %}
+         <div class="dice-box">
+            <div class="red-box">
+                <p>红色骰子产生的数字 {{ diff_red_dice_num }}
+                <p>彩票C的收益为{{ diff_red_payoff }}元</p>
+            </div>
+            <div class="blue-box">
+                <p>蓝色骰子产生的数字 {{ diff_blue_dice_num }}
+                <p>彩票D的收益为{{ diff_blue_payoff }}元</p>
+            </div>
+        </div>
+    {% else %}
+    {% endif %}
+
+
+    {% if diff_subj_treatment == "B" %}
+        {% if diff_lottery_chosen == "彩票C" %}
+             <div class="dice-box">
+                 <div class="red-box">
+                     <p>红色骰子产生的数字 {{ diff_red_dice_num }}
+                     <p>彩票C的收益为{{ diff_red_payoff }}元</p>
+                 </div>
+             </div>
+         {% else %}
+         {% endif %}
+
+        {% if diff_lottery_chosen == "彩票D" %}
+            <div class="dice-box">
+                <div class="blue-box">
+                    <p>蓝色骰子产生的数字 {{ diff_blue_dice_num }}
+                    <p>彩票D的收益为{{ diff_blue_payoff }}元</p>
+                </div>
+            </div>
+        {% else %}
+        {% endif %}
+    {% else %}
+    {% endif %}
+
+    {% if diff_subj_treatment == "C" %}
+         <div class="dice-box">
+            <div class="red-box">
+                <p>红色骰子产生的数字 {{ diff_red_dice_num }}
+                <p>彩票C的收益为{{ diff_red_payoff }}元</p>
+            </div>
+            <div class="blue-box">
+                <p>蓝色骰子产生的数字 {{ diff_blue_dice_num }}
+                <p>彩票D的收益为{{ diff_blue_payoff }}元</p>
+            </div>
+        </div>
+    {% else %}
+    {% endif %}
+
+    {% if diff_subj_treatment == "D" %}
+         {% if diff_lottery_chosen == "彩票C" %}
+             <div class="dice-box">
+                 <div class="red-box">
+                     <p>红色骰子产生的数字 {{ diff_red_dice_num }}
+                     <p>彩票C的收益为{{ diff_red_payoff }}元</p>
+                 </div>
+             </div>
+         {% else %}
+         {% endif %}
+
+         {% if diff_lottery_chosen == "彩票D" %}
+             <div class="dice-box">
+                 <div class="blue-box">
+                     <p>蓝色骰子产生的数字 {{ diff_blue_dice_num }}
+                     <p>彩票D的收益为{{ diff_blue_payoff }}元</p>
+                 </div>
+             </div>
+        {% endif %}
+        {% else %}
+    {% else %}
+    {% endif %}
+
+{% else %}
+{% endif %}
+
+<p>
+    您在第二部分的收入是
+    <b>{{ diff_final_payoff }}</b>
+    元。
+</p>
+
+<hr>
+
+<p>
+    相加基础报酬、第一部分报酬和第二部分报酬，您最终的报酬为
+    <b>{{ total_final_payoff }}</b>
+    元。再次感谢您参与本次实验！
+</p>
+
+
+{% endblock %}

@@ -14,7 +14,7 @@ SESSION_CONFIG_DEFAULTS = (
 
 SESSION_CONFIGS = [dict(
     name='my_session',
-    num_demo_participants=20,
+    num_demo_participants=8,
     # app_sequence=['start_page'] + randomize_app_sequence() + ['reward_page']
     app_sequence=['start_page', 'same_dice', 'diff_dice', 'questionnaire', 'reward_page']
     # app_sequence=['start_page', 'same_dice', 'diff_dice', 'reward_page']

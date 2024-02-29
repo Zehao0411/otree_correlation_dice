@@ -15,13 +15,13 @@
     <b> {{ rand_num }} </b>
     元, 以
     <b> 使得 </b>
-   未选择的彩票({{ lottery_not_chosen }}和您已经选择的彩票({{ lottery_chosen }}同时开奖？
+   未选择的{{ lottery_not_chosen }}和您已经选择的{{ lottery_chosen }}同时开奖？
 </p>
 
 
 <p align="justify">
     如果您愿意支付，
-    <b> 电脑将同时投掷蓝色和红色的骰子, 您未选择的{{ lottery_not_chosen }}）和您已选择的{{ lottery_chosen }}）都会开奖, 您也将同时知道它们所产生的结果。  </b>
+    <b> 电脑将同时投掷蓝色和红色的骰子, 您未选择的{{ lottery_not_chosen }}和您已选择的{{ lottery_chosen }}都会开奖, 您也将同时知道它们所产生的结果。  </b>
 </p>
 
 
@@ -40,7 +40,7 @@
 {% if lottery_chosen == "彩票C" %}
 <p align="justify">
     如果您不愿意支付，
-    <b> 电脑将只投掷红色的骰子, 您将只会知道已选择的{{ lottery_chosen }}）所产生的结果。  </b>
+    <b> 电脑将只投掷红色的骰子, 您将只会知道已选择的{{ lottery_chosen }}所产生的结果。  </b>
 </p>
 <div class="dice-box">
     <div class="red-box">
@@ -55,7 +55,7 @@
 {% if lottery_chosen == "彩票D" %}
 <p>
     如果您不愿意支付，
-    <b> 电脑将只投掷蓝色的骰子, 您将只会知道已选择的{{ lottery_chosen }}）所产生的结果。  </b>
+    <b> 电脑将只投掷蓝色的骰子, 您将只会知道已选择的{{ lottery_chosen }}所产生的结果。  </b>
 </p>
 <div class="dice-box">
     <div class="blue-box">

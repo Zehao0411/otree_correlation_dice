@@ -13,17 +13,16 @@
 <p align="justify">
     根据您之前的选择,
     <b> 电脑已经分别投掷了蓝色和红色的骰子 </b>
-    ，您未选择的彩票({{ lottery_not_chosen }})和您已经选择的彩票({{ lottery_chosen }})都已经开奖。
+    ，您未选择的{{ lottery_not_chosen }}和您已经选择的{{ lottery_chosen }}都已经开奖。
     请问您是否愿意支付
     <b> {{ rand_num }} </b>
     元,
     <b> 以便同时知道 </b>
-   知道未选择的彩票({{ lottery_not_chosen }})所产生的结果？
+   知道未选择的{{ lottery_not_chosen }}所产生的结果？
 </p>
 
-
 <p align="justify">
-    如果您不愿意支付，
+    如果您愿意支付，
     <b> 您将会同时知道选择的{{ lottery_not_chosen }}和您已选择的{{ lottery_chosen }}所产生的结果 </b>
 </p>
 
@@ -42,7 +41,7 @@
 
 {% if lottery_chosen == "彩票C" %}
 <p align="justify">
-    如果您愿意支付，
+    如果您不愿意支付，
     <b> 您将只会知道已选择的{{ lottery_chosen }}所产生的结果。 </b>
 </p>
 <div class="dice-box">
@@ -57,7 +56,7 @@
 
 {% if lottery_chosen == "彩票D" %}
 <p>
-    如果您愿意支付，
+    如果您不愿意支付，
     <b> 您将只会知道已选择的{{ lottery_chosen }}所产生的结果。  </b>
 </p>
 <div class="dice-box">

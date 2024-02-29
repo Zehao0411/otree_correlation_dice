@@ -18,23 +18,47 @@
     元, 也就是说:
 </p>
 
-<p align="justify">
-如果骰子产生的数字是1或2, {{ lottery_chosen }}将为您赢得10元, {{ lottery_not_chosen }}将为您赢得
-    <b> {{ payoff_low }} </b>
-    元。
-</p>
+{% if lottery_chosen == "彩票A" %}
+    <p align="justify">
+    如果骰子产生的数字是1或2, 彩票A将为您赢得10元, 彩票B}将为您赢得
+        <b> {{ payoff_low }} </b>
+        元。
+    </p>
 
-<p align="justify">
-如果骰子产生的数字是3或4, {{ lottery_chosen }}将为您赢得5元, {{ lottery_not_chosen }}将为您赢得
-    <b> {{ payoff_high }} </b>
-    元。
-</p>
+    <p align="justify">
+    如果骰子产生的数字是3或4, 彩票A将为您赢得5元, 彩票B将为您赢得
+        <b> {{ payoff_high }} </b>
+        元。
+    </p>
 
-<p align="justify">
-如果骰子产生的数字是5或6, {{ lottery_chosen }}将为您赢得0元, {{ lottery_not_chosen }}将为您赢得
-    <b> {{ payoff_mid }} </b>
-    元。
-</p>
+    <p align="justify">
+    如果骰子产生的数字是5或6, 彩票A将为您赢得0元, 彩票B将为您赢得
+        <b> {{ payoff_mid }} </b>
+        元。
+    </p>
+{% else %}
+{% endif %}
+
+{% if lottery_chosen == "彩票B" %}
+    <p align="justify">
+    如果骰子产生的数字是1或2, 彩票A将为您赢得
+        <b> {{ payoff_high }} </b>
+        元, 彩票B将为您赢得0元。
+    </p>
+
+    <p align="justify">
+    如果骰子产生的数字是3或4, 彩票A将为您赢得
+        <b> {{ payoff_mid }} </b>
+        元, 彩票B将为您赢得10元。
+    </p>
+
+    <p align="justify">
+    如果骰子产生的数字是5或6, 彩票A将为您赢得
+        <b> {{ payoff_low }} </b>
+        元, 彩票B将为您赢得5元。
+    </p>
+{% else %}
+{% endif %}
 
     {% formfields %}
 
