@@ -179,6 +179,7 @@ class Q2A(Page):
             self.player.diff_subj_responses += self.player.Q2A + ', '
             self.player.diff_subj_rand_values += str(self.player.Q2A_rand_num) + ', '
 
+            self.player.Q2A = None
 
 class StartB(Page):
     def is_displayed(self):
@@ -335,6 +336,9 @@ class Q2B(Page):
             self.player.diff_subj_responses += self.player.Q2B + ', '
             self.player.diff_subj_rand_values += str(self.player.Q2B_rand_num) + ', '
 
+            self.player.Q2B = None
+
+
 class StartC(Page):
     def is_displayed(self):
         treat_C_cond = self.player.treatment == 'C'
@@ -489,7 +493,9 @@ class Q2C(Page):
 
             self.player.diff_subj_responses += self.player.Q2C + ', '
             self.player.diff_subj_rand_values += str(self.player.Q2C_rand_num) + ', '
-        
+
+            self.player.Q2C = None
+
 
 class StartD(Page):
     def is_displayed(self):
@@ -645,6 +651,8 @@ class Q2D(Page):
 
             self.player.diff_subj_responses += self.player.Q2D + ', '
             self.player.diff_subj_rand_values += str(self.player.Q2D_rand_num) + ', '
+
+            self.player.Q2D = None
 
 
 class Finish(Page):

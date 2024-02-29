@@ -453,7 +453,7 @@
 
 {% if same_lottery_chosen == "彩票A" %}
     <p align="justify">
-    如果骰子产生的数字是1或2, 彩票A将为您赢得10元, 彩票B}将为您赢得
+    如果骰子产生的数字是1或2, 彩票A将为您赢得10元, 彩票B将为您赢得
         <b> {{ same_payoff_low }} </b>
         元。
     </p>
@@ -495,7 +495,9 @@
 </div>
 
 <p>
- 您在该决策中选择的是{{ same_selected_response }}, 骰子随机到的点数为
+ 您在该决策中选择的是
+    <b>{{ same_selected_response }}</b>
+    , 骰子随机到的点数为
     <b>{{ same_dice_num }}</b>
     ， 产生的报酬为
     <b>{{ same_final_payoff }}</b>

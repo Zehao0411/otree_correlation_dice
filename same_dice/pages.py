@@ -171,6 +171,7 @@ class Q3(Page):
         self.player.same_subj_responses += self.player.Q3 + ', '
         self.player.same_subj_rand_values += str(self.player.Q3_rand_num) + ', '
 
+        self.player.Q3 = None
 
 class Finish(Page):
     def vars_for_template(self):
