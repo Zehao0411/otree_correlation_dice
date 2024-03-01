@@ -32,7 +32,13 @@ PARTICIPANT_FIELDS = []
 
 SESSION_FIELDS = []
 
-ROOMS = [dict(name='CCBEF404A', display_name='颐德楼404A')]
+ROOMS = [
+    {
+        'name': 'CCBEF404A',
+        'display_name': '颐德楼404A',
+        'participant_label_file': '_rooms/CCBEF404A.txt',
+    },
+]
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
